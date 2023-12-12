@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.MainActivity"
+        android:background="@color/blue">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBaseline_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:cardCornerRadius="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="10dp"
+                    android:gravity="center">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp">
+
+                        <LinearLayout
+                            android:id="@+id/location_option_bar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent">
+
+                            <ImageView
+                                android:layout_width="43dp"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/gps_icon"
+                                android:contentDescription="TODO">
+
+                            </ImageView>
+
+                            <TextView
+                                android:id="@+id/selected_location"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_weight="1"
+                                android:textSize="25sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:gravity="start"
+                                android:layout_margin="5dp">
+
+                            </TextView>
+
+                            <!-- 回首頁btn-目前位置 -->
+                            <ImageView
+                                android:id="@+id/current_location"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/current_location_icon"
+                                android:background="?selectableItemBackgroundBorderless"
+                                android:layout_margin="5dp">
+
+                            </ImageView>
+
+                            <!-- 搜索btn -->
+                            <ImageView
+                                android:id="@+id/search_option"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/ic_round_search_24"
+                                android:background="?selectableItemBackgroundBorderless"
+                                android:layout_margin="5dp">
+
+                            </ImageView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/location_search_bar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent">
+
+                            <ImageView
+                                android:id="@+id/back"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:src="@drawable/current_location_icon"
+                                android:background="?android:selectableItemBackground"
+                                android:layout_margin="5dp">
+
+                            </ImageView>
+
+                            <EditText
+                                android:id="@+id/location_search"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:layout_weight="1"
+                                android:hint="搜尋城市"
+                                android:imeOptions="actionSearch"
+                                android:inputType="text"
+                                android:textColorHint="@color/black"
+                                android:background="@drawable/rounded_search"
+                                android:textColor="@color/black"
+                                android:gravity="start"
+                                android:padding="10dp">
+
+                            </EditText>
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!-- 天氣圖示 -->
+                    <ImageView
+                        android:id="@+id/weather_logo"
+                        android:layout_width="250dp"
+                        android:layout_height="250dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp">
+
+                    </ImageView>
+
+                    <!-- 氣溫 -->
+                    <TextView
+                        android:id="@+id/weather_temp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="75sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_marginTop="25dp">
+
+                    </TextView>
+
+                    <!-- 天氣狀態 -->
+                    <TextView
+                        android:id="@+id/weather_state"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="25dp">
+
+                    </TextView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_marginBottom="15dp">
+
+                        <!-- 濕度 -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/humidity">
+
+                            </ImageView>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_marginStart="5dp">
+
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Humidity"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:gravity="center">
+
+                            </TextView>
+
+                            <TextView
+                                android:id="@+id/weather_humidity"
+                                android:layout_width="90dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="1dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textSize="20sp"
+                                android:textStyle="bold">
+
+                            </TextView>
+
+                        </LinearLayout>
+
+                        <!-- 風速 -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/wind">
+
+                            </ImageView>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Wind Speed"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:gravity="center">
+
+                            </TextView>
+
+                            <TextView
+                                android:id="@+id/weather_wind_speed"
+                                android:layout_width="81dp"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:gravity="center">
+
+                            </TextView>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_marginStart="5dp">
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <!-- 氣壓 -->
+                        <LinearLayout
+                            android:layout_width="111dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/pressure">
+
+                            </ImageView>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="Pressure"
+                                android:textColor="@color/black"
+                                android:textSize="15sp">
+
+                            </TextView>
+
+                            <TextView
+                                android:id="@+id/weather_pressure"
+                                android:layout_width="81dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textSize="19sp"
+                                android:textStyle="bold">
+
+                            </TextView>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="5dp"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+            </ProgressBar>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
