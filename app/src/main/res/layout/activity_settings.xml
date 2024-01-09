@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="設定"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="夜間模式"
+            android:textSize="18sp"
+            android:layout_marginStart="5dp"/>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/clearHistoryLayout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/linearLayout"
+        android:gravity="center_vertical"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="8dp"
+        app:cardMaxElevation="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/clearHistoryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="清除搜尋紀錄"
+                android:textSize="18sp"
+                android:gravity="center_vertical|left"
+                android:layout_marginStart="5dp"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/clearFavoritesLayout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/clearHistoryLayout"
+        android:gravity="center_vertical"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="8dp"
+        app:cardMaxElevation="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/clearFavoritesText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="清除我的最愛"
+                android:textSize="18sp"
+                android:gravity="center_vertical|left"
+                android:layout_marginStart="5dp"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

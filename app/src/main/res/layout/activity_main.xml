@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="1500dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                tools:context=".activities.MainActivity">
+
+                <RelativeLayout
+                    android:id="@+id/main_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    app:layout_constraintBaseline_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <LinearLayout
+                        android:id="@+id/top"
+                        android:layout_width="match_parent"
+                        android:layout_height="550dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="15dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:id="@+id/location_option_bar"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="horizontal"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <ImageView
+                                        android:layout_width="43dp"
+                                        android:layout_height="match_parent"
+                                        android:contentDescription="TODO"
+                                        android:src="@drawable/gps_icon">
+
+                                    </ImageView>
+
+                                    <TextView
+                                        android:id="@+id/selected_location"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="5dp"
+                                        android:layout_marginStart="5dp"
+                                        android:layout_weight="1"
+                                        android:gravity="start"
+                                        android:textColor="@color/black"
+                                        android:textSize="20sp"
+                                        android:textStyle="bold">
+
+                                    </TextView>
+
+                                    <!-- 目前位置 -->
+                                    <ImageView
+                                        android:id="@+id/current_location"
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:layout_margin="5dp"
+                                        android:background="?selectableItemBackgroundBorderless"
+                                        android:src="@drawable/current_location_icon">
+
+                                    </ImageView>
+
+                                    <!-- 搜索btn -->
+                                    <ImageView
+                                        android:id="@+id/search_option"
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:layout_margin="5dp"
+                                        android:background="?selectableItemBackgroundBorderless"
+                                        android:src="@drawable/ic_round_search_24">
+
+                                    </ImageView>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/location_search_bar"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:orientation="horizontal"
+                                    android:visibility="gone"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <ImageView
+                                        android:id="@+id/back"
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:layout_margin="5dp"
+                                        android:background="?android:selectableItemBackground"
+                                        android:src="@drawable/current_location_icon">
+
+                                    </ImageView>
+
+                                    <AutoCompleteTextView
+                                        android:id="@+id/location_search"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="5dp"
+                                        android:layout_weight="1"
+                                        android:background="@drawable/rounded_search"
+                                        android:completionThreshold="0"
+                                        android:dropDownWidth="match_parent"
+                                        android:dropDownHeight="200dp"
+                                        android:gravity="start"
+                                        android:hint="搜尋城市"
+                                        android:imeOptions="actionSearch"
+                                        android:inputType="text"
+                                        android:padding="10dp"
+                                        android:popupBackground="@color/white"
+                                        android:textColor="@color/black"
+                                        android:textColorHint="@color/black">
+
+                                    </AutoCompleteTextView>
+
+                                </LinearLayout>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <!-- 天氣圖示 -->
+                            <ImageView
+                                android:id="@+id/weather_logo"
+                                android:layout_width="150dp"
+                                android:layout_height="150dp"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="25dp"
+                                android:layout_marginBottom="25dp">
+
+                            </ImageView>
+
+                            <!-- 氣溫 -->
+                            <TextView
+                                android:id="@+id/weather_temp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center"
+                                android:textSize="50sp"
+                                android:textStyle="bold">
+
+                            </TextView>
+
+                            <!-- 天氣狀態 -->
+                            <TextView
+                                android:id="@+id/weather_state"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="15dp"
+                                android:gravity="center"
+                                android:textColor="@color/black"
+                                android:textSize="15sp">
+
+                            </TextView>
+
+                            <HorizontalScrollView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fillViewport="true">
+                                <!-- android:fadeScrollbars="false" 要的話記得把這個放到HorizontalScrollView-->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="15dp"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2">
+
+                                    <!-- 濕度 -->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="50dp"
+                                            android:layout_height="50dp"
+                                            android:src="@drawable/humidity_icon">
+
+                                        </ImageView>
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginStart="5dp"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+
+                                        </LinearLayout>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="濕度"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp">
+
+                                        </TextView>
+
+                                        <TextView
+                                            android:id="@+id/weather_humidity"
+                                            android:layout_width="90dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_margin="1dp"
+                                            android:gravity="center"
+                                            android:textColor="@color/black"
+                                            android:textSize="20sp"
+                                            android:textStyle="bold">
+
+                                        </TextView>
+
+                                    </LinearLayout>
+                                    <!-- 風速 -->
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="50dp"
+                                            android:layout_height="50dp"
+                                            android:src="@drawable/wind">
+
+                                        </ImageView>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="風速"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp">
+
+                                        </TextView>
+
+                                        <TextView
+                                            android:id="@+id/weather_wind_speed"
+                                            android:layout_width="81dp"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:textColor="@color/black"
+                                            android:textSize="20sp"
+                                            android:textStyle="bold">
+
+                                        </TextView>
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginStart="5dp"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+                                    <!-- 氣壓 -->
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="50dp"
+                                            android:layout_height="50dp"
+                                            android:src="@drawable/pressure">
+
+                                        </ImageView>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="氣壓"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp">
+
+                                        </TextView>
+
+                                        <TextView
+                                            android:id="@+id/weather_pressure"
+                                            android:layout_width="81dp"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:textColor="@color/black"
+                                            android:textSize="19sp"
+                                            android:textStyle="bold">
+
+                                        </TextView>
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginStart="5dp"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <!-- 體感 -->
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="50dp"
+                                            android:layout_height="50dp"
+                                            android:src="@drawable/feels_like">
+
+                                        </ImageView>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="體感"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp">
+
+                                        </TextView>
+
+                                        <TextView
+                                            android:id="@+id/weather_FeelsLike"
+                                            android:layout_width="81dp"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:textColor="@color/black"
+                                            android:textSize="19sp"
+                                            android:textStyle="bold">
+
+                                        </TextView>
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginStart="5dp"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                    <!-- 空氣 -->
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:id="@+id/air_image"
+                                            android:layout_width="50dp"
+                                            android:layout_height="50dp">
+
+                                        </ImageView>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="空氣"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp">
+
+                                        </TextView>
+
+                                        <TextView
+                                            android:id="@+id/weather_AirPollution"
+                                            android:layout_width="81dp"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:textColor="@color/black"
+                                            android:textSize="19sp"
+                                            android:textStyle="bold">
+
+                                        </TextView>
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginStart="5dp"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:orientation="vertical"></LinearLayout>
+                                    </LinearLayout>
+                                    <!-- 能見度 -->
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:orientation="vertical">
+
+                                        <ImageView
+                                            android:layout_width="50dp"
+                                            android:layout_height="50dp"
+                                            android:src="@drawable/visibility">
+
+                                        </ImageView>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="能見度"
+                                            android:textColor="@color/black"
+                                            android:textSize="15sp">
+
+                                        </TextView>
+
+                                        <TextView
+                                            android:id="@+id/weather_Visibility"
+                                            android:layout_width="81dp"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:textColor="@color/black"
+                                            android:textSize="19sp"
+                                            android:textStyle="bold">
+
+                                        </TextView>
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginStart="5dp"
+                                            android:layout_weight="1"
+                                            android:gravity="center"
+                                            android:orientation="vertical">
+
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </HorizontalScrollView>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView1"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    app:cardBackgroundColor="@color/blue"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="4dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/main_layout">
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/forecastHourLayer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1"/>
+
+                    </HorizontalScrollView>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView2"
+                    android:layout_width="0dp"
+                    android:layout_height="280dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="15dp"
+                    app:cardBackgroundColor="@color/blue"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="4dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView1">
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/forecastDayLayer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="1"/>
+
+                    </HorizontalScrollView>
+
+                </androidx.cardview.widget.CardView>
+                <!-- 假方塊 -->
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cardView2">
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#808080"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/favoriteContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:src="@drawable/favorite"></ImageView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/refreshContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:src="@drawable/refresh"></ImageView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/settingsContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:src="@drawable/settings"></ImageView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+</layout>
